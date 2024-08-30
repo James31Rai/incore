@@ -2,18 +2,13 @@
 use Core\Session;
 use Core\ValidationException;
 
-session_start();
-
 const BASE_PATH = __DIR__ . '/../';
 
+require BASE_PATH . 'vendor/autoload.php';
+
+session_start();
+
 require BASE_PATH . 'Core/functions.php';
-
-spl_autoload_register(function ($class) {
-    $class = str_replace('\\', DIRECTORY_SEPARATOR, $class);
-    require base_path("{$class}.php");
-});
-
-$session = new Session();
 
 require base_path('bootstrap.php');
 
@@ -27,9 +22,9 @@ $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
 try {
     $router->route($uri, $method);
 } catch (ValidationException $e) {
-    $session::flash('errors', $e->errors());
-    $session::flash('old', $e->attributes());
+    Session::flash('errors', $e->errors());
+    Session::flash('old', $e->attributes());
     return redirect($router->previousUrl());
 }
 
-$session::clearFlash();
+Session::clearFlash();

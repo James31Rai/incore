@@ -1,0 +1,16 @@
+{
+    "name": "asus/incore",
+    "authors": [
+        {
+            "name": "James31Rai",
+            "email": "james3in1rai@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\": "Core/",
+            "Http\\": "Http/"
+        }
+    }
+}
