@@ -24,6 +24,7 @@
         }
     },
     "scripts": {
-        "test": "./vendor/bin/pest"
+        "test": "./vendor/bin/pest",
+        "test-filter": "./vendor/bin/pest --filter"
     }
 }
