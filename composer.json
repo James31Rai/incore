@@ -6,11 +6,24 @@
             "email": "james3in1rai@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/collections": "^11.21"
+    },
     "autoload": {
         "psr-4": {
             "Core\\": "Core/",
             "Http\\": "Http/"
         }
+    },
+    "require-dev": {
+        "pestphp/pest": "^2.35"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "scripts": {
+        "test": "./vendor/bin/pest"
     }
 }
